@@ -11,3 +11,6 @@ migrate-down:
 
 migrate-status:
 	goose -dir ./db/migrations postgres "$(ADMIN_DATABASE_URL)" status
+
+sqlc:
+	sqlc generate
