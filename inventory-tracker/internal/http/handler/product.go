@@ -8,7 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgtype"
 )
 
 type ProductHandler struct {
@@ -48,14 +47,9 @@ func (h *ProductHandler) GetProductByID(c *gin.Context) {
 		return
 	}
 
-	productID := pgtype.UUID{
-		Bytes: parsedID,
-		Valid: true,
-	}
-
 	product, err := h.productService.GetProductByID(
 		c.Request.Context(),
-		productID,
+		parsedID,
 	)
 	if err != nil {
 		if errors.Is(err, pgx.ErrNoRows) {
