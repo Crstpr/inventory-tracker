@@ -22,6 +22,9 @@ func (s *productUseCase) ListProducts(ctx context.Context) ([]dbgen.ListProducts
 	if err != nil {
 		return nil, err
 	}
+	if products == nil {
+		return []dbgen.ListProductsRow{}, nil
+	}
 	return products, nil
 }
 

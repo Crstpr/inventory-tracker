@@ -14,3 +14,8 @@ migrate-status:
 
 sqlc:
 	sqlc generate
+
+.PHONY: run migrate-up migrate-down migrate-status sqlc seed-dev
+
+seed-dev:
+	psql "$(ADMIN_DATABASE_URL)" -f ./db/seeds/dev.sql
