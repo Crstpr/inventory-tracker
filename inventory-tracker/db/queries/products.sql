@@ -12,7 +12,7 @@ SELECT
         WHEN on_hand = 0 THEN 'OUT OF STOCK'
         WHEN on_hand < min_stock THEN 'LOW'
         ELSE 'HEALTHY'
-    END::text AS stock_status,
+    END::text AS stock_state,
     version,
     created_at,
     updated_at
@@ -34,7 +34,7 @@ SELECT
         WHEN on_hand = 0 THEN 'OUT OF STOCK'
         WHEN on_hand < min_stock THEN 'LOW'
         ELSE 'HEALTHY'
-    END::text AS stock_status,
+    END::text AS stock_state,
     version,
     created_at,
     updated_at
